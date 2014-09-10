@@ -1,0 +1,17 @@
+syntax: glob
+*.pyc
+*~
+*.swp
+.coverage
+distribute.egg-info
+setuptools.egg-info
+build
+dist
+lib
+bin
+include
+\.Python
+*.swp
+CHANGES (links).txt
+.git2
+.gitignore

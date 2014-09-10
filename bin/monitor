@@ -1,0 +1,42 @@
+#!/bin/bash
+###I##################
+#Author: jcsong
+#Date: 2014-08-05
+#####################
+DESC="Monitor component process and alert with SMS if it go dead."
+NAME="monitor-alert"
+PID=/var/run/$NAME.pid
+USAGE="Usage: monitor-alert.sh [--config <conf-dir>] (start|stop|restart)"
+#####################
+
+# if no args specified, show usage
+if [ $# -eq 0 ]; then
+  echo $USAGE
+  exit 1
+fi
+
+action=$1
+shift
+
+case $action in
+  (start)
+    nohup ./$NAME.sh &
+    echo "$!" > $PID
+    ;;
+  (stop)
+    if [ -f $PID ]; then
+      echo "Stopping monitor-alert ..."
+      kill -15 $(cat $PID)
+      echo "monitor-alert stopped"
+    else
+      echo "No monitor-alert to stop"
+    fi
+    ;;
+  (restart)
+    $0 stop
+    $0 start
+  (*)
+    echo $usage
+    ;;
+esac
+exit 0
