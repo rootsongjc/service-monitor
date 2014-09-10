@@ -29,12 +29,12 @@ downLine=`grep -c "$srv is down" $logfile|cut -d ":" -f1|tail -n1`
 #if process dead
 if test "$process" != "$srv"  ; then
 	echo "[ERROR] $time $srv is down." >> $logfile
-	python alarm.py message -b "[ERROR] $time Host:`hostname -i` $srv is down." -s "$srv" -a "5279aa31" -p "$phones" -u "DOWN" -i `hostname -i`
+	python alarm.py message -b "[ERROR] $time Host:`hostname -i` $srv is down." -s "科大讯飞" -a "5279aa31" -p "$phones" -u "DOWN" -i `hostname -i`
 	echo "[INFO] $time Send $srv down signal." >> $logfile
 	#process live, but recovered from dead just now.
 elif [ $upLine -lt $downLine ] || [ $upLine -eq $downLine ] ; then
 	echo "[INFO] $time $srv is up." >> $logfile
-	python alarm.py message -b "[INFO] $time Host: `hostname -i` $srv is up." -s "$srv" -a "5279aa31" -p "$phones" -u "OK" -i `hostname -i`
+	python alarm.py message -b "[INFO] $time Host: `hostname -i` $srv is up." -s "科大讯飞" -a "5279aa31" -p "$phones" -u "OK" -i `hostname -i`
 	echo "[INFO] $time Send $srv up signal." >> $logfile
 fi
 }
