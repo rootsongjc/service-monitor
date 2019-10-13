@@ -16,7 +16,8 @@ The SMS text message must have the prefix 科大讯飞,or the CMCC phone numbers
 
 ./install.sh
 
-# #Config
+## Config
+
 *	conf/config
 *	phone numbers
 *	services
