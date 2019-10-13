@@ -1,24 +1,28 @@
-Monitor and alert program
+# Monitor and alert program
+
 Monitor the component process and alert with SMS when it go dead.
-#Dependency
+
+## Dependency
+
 *	Linux
 *	python 2.6 and later
 *	SMS python API should be work perfect.
-#Attention
+
+## Attention
+
 The SMS text message must have the prefix 科大讯飞,or the CMCC phone numbers will not receive the messages.
-#Install
+
+## Install
+
 ./install.sh
 
-#Config
+# #Config
 *	conf/config
 *	phone numbers
 *	services
 
-#Start
+## Start
 ./monitor start
 
-#Stop
+## Stop
 ./monitor stop
-
-##Author
-jcsong2@iflytek.com
